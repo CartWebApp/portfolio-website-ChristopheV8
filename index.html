@@ -8,11 +8,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Darkening screen overlay -->
+
   <div id="dark-overlay"></div>
 
   <header>
+    <Nav id="nav-home" >
+      <a href="index.html">
+        <img id="cv-logo" src="images/cv-logo.png">
+      </a>
     <div class="logo">Cristopher Villegas</div>
+    </Nav>
     <p>Give the Campfire Fuel!</p>
     <nav class="nav-links">
       <a href="projects.html">Projects</a>
@@ -33,7 +38,6 @@
     </div>
   </section>
 
-  <!-- 🔥 Campfire fixed in bottom-right -->
   <div id="campfireZone">
     <div id="fire"></div>
   </div>
@@ -41,21 +45,28 @@
     <div class="wood" draggable="true"></div>
     <div class="wood" draggable="true"></div>
 
-   <div id="control-panel">
-  <label>
-    Decay Speed:
-    <input type="range" id="decaySpeed" min="0.001" max="0.05" step="0.001" value="0.01">
-  </label>
-  <label>
-    Wood Boost:
-    <input type="range" id="lightBoost" min="0.1" max="1" step="0.1" value="0.3">
-  </label>
-  <label>
-    <input type="checkbox" id="themeToggle" checked>
-    Dark Mode
-  </label>
+<div id="control-container">
+  <button id="toggle-panel">⚙️ Controls</button>
+  <div id="control-panel">
+    <label>
+      Decay Speed:
+      <input type="range" id="decaySpeed" min="0.001" max="0.05" step="0.001" value="0.01">
+    </label>
+    <label>
+      Wood Boost:
+      <input type="range" id="lightBoost" min="0.1" max="1" step="0.1" value="0.3">
+    </label>
+    <label>
+      Wood Count:
+      <input type="range" id="woodCount" min="1" max="25" step="1" value="3">
+      <span id="woodCountValue">3</span>
+    </label>
+    <label>
+      <input type="checkbox" id="themeToggle" checked>
+      Dark Mode
+    </label>
+  </div>
 </div>
-
 
   <script src="script.js"></script>
 </body>

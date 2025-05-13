@@ -3,20 +3,26 @@ const overlay = document.getElementById('dark-overlay');
 const decaySlider = document.getElementById('decaySpeed');
 const boostSlider = document.getElementById('lightBoost');
 const themeToggle = document.getElementById('themeToggle');
+const woodCountSlider = document.getElementById('woodCount');
 const container = document.getElementById('campfireZone');
-const woods = Array.from(document.querySelectorAll('.wood'));
+const toggleButton = document.getElementById('toggle-panel');
+const controlPanel = document.getElementById('control-panel');
+const woodCountValue = document.getElementById('woodCountValue');
+
 
 let fireStrength = 1;
 let fireDecayRate = parseFloat(decaySlider.value);
 let woodLightBoost = parseFloat(boostSlider.value);
+let woodCount = parseInt(woodCountSlider.value);
+let woods = [];
 
-// Update fire and overlay opacity
+
 function updateFireAndDarkness() {
   fire.style.opacity = fireStrength;
   overlay.style.opacity = 1 - fireStrength;
 }
 
-// Burn down over time
+
 function burnDown() {
   fireStrength -= fireDecayRate;
   fireStrength = Math.max(fireStrength, 0);
@@ -24,45 +30,75 @@ function burnDown() {
 }
 setInterval(burnDown, 500);
 
-// Update settings when sliders change
+
 decaySlider.addEventListener('input', () => {
   fireDecayRate = parseFloat(decaySlider.value);
 });
 boostSlider.addEventListener('input', () => {
   woodLightBoost = parseFloat(boostSlider.value);
 });
+woodCountSlider.addEventListener('input', () => {
+  woodCount = parseInt(woodCountSlider.value);
+  woodCountValue.textContent = woodCount; // 
+  updateWoodCount();
+});
 
-// Toggle dark mode
+
+
 themeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode', themeToggle.checked);
 });
 
-// Get a random position on the page
+
 function getRandomPosition() {
   const x = Math.floor(Math.random() * (window.innerWidth - 100));
   const y = Math.floor(Math.random() * (window.innerHeight - 50));
   return { x, y };
 }
 
-// Place wood at a new random position
+
 function spawnWood(wood) {
   const { x, y } = getRandomPosition();
   wood.style.left = `${x}px`;
   wood.style.top = `${y}px`;
   wood.style.display = 'block';
-  wood.style.zIndex = '1001';
   wood.style.position = 'absolute';
   wood.style.opacity = '1';
+  wood.style.zIndex = '1001';
 }
 
-// Keep at least 3 wood pieces on screen
+function createWood(index) {
+  const wood = document.createElement('div');
+  wood.classList.add('wood');
+  wood.setAttribute('draggable', 'true');
+  wood.dataset.index = index;
+
+  wood.addEventListener('dragstart', (e) => {
+    e.dataTransfer.setData('text/plain', index);
+  });
+
+  document.body.appendChild(wood);
+  spawnWood(wood);
+  return wood;
+}
+
+function updateWoodCount() {
+  woods.forEach(wood => wood.remove());
+  woods = [];
+
+  for (let i = 0; i < woodCount; i++) {
+    const newWood = createWood(i);
+    woods.push(newWood);
+  }
+}
+
 function ensureMinimumWood() {
   const visibleWoods = woods.filter(wood => wood.style.display !== 'none');
-  while (visibleWoods.length < 3) {
+  while (visibleWoods.length < woodCount) {
     const hiddenWood = woods.find(wood => wood.style.display === 'none');
     if (hiddenWood) {
-      hiddenWood.style.display = 'block';
       spawnWood(hiddenWood);
+      hiddenWood.style.display = 'block';
       visibleWoods.push(hiddenWood);
     } else {
       break;
@@ -70,18 +106,8 @@ function ensureMinimumWood() {
   }
 }
 
-// Initialize wood pieces
-woods.forEach((wood, index) => {
-  spawnWood(wood);
-  wood.addEventListener('dragstart', (e) => {
-    e.dataTransfer.setData('text/plain', index);
-  });
-});
-
-// Allow drops on container
 container.addEventListener('dragover', (e) => e.preventDefault());
 
-// Drop wood on fire
 container.addEventListener('drop', (e) => {
   e.preventDefault();
   const index = e.dataTransfer.getData('text');
@@ -99,5 +125,10 @@ container.addEventListener('drop', (e) => {
   }, 500);
 });
 
-// Start with 3 wood pieces
-ensureMinimumWood();
+toggleButton.addEventListener('click', () => {
+  controlPanel.style.display = 
+    controlPanel.style.display === 'none' ? 'flex' : 'none';
+});
+
+updateWoodCount();
+woodCountValue.textContent = woodCount;

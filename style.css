@@ -24,7 +24,23 @@
       padding: 20px 50px;
       height: 100px;
       font-size: large;
+      border-bottom: white 1px solid;
+      width: 98%;
+      margin: auto;
     }
+
+    #nav-home {
+      width: 350px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #cv-logo {
+      width: 50px;
+      height: 50px;
+      background-color: lightblue;
+    }
+
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 32px;
@@ -35,6 +51,7 @@
       text-decoration: none;
       margin: 0 15px;
       font-weight: bold;
+      font-family: 'Playfair Display', serif;
     }
     .hero {
       background-color: #222;
@@ -70,6 +87,7 @@
       color: white;
       border-radius: 5px;
       transition: 0.3s;
+      font-family: 'Playfair Display', serif;
     }
     .buttons .learn {
       background-color: #b89d6a;
@@ -90,6 +108,35 @@
   pointer-events: none; /* optional: so it doesn’t block buttons */
 }
 
+#control-container {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  z-index: 1002;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 10px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#toggle-panel {
+  background: #444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#control-panel {
+  display: none; /* Start collapsed */
+  flex-direction: column;
+  gap: 10px;
+}
+
+
 #campfire {
   width: 60px;
   height: 100px;
@@ -103,7 +150,7 @@
 #fire {
   width: 100%; 
   height: 100%; 
-  background-image: url('images/b967d1e281bd0aaca615e889386b0496.gif'); 
+  background-image: url('images/fire.gif'); 
   background-size: cover; 
   background-position: center; 
   opacity: 1;
@@ -114,15 +161,15 @@
 .wood {
   width: 100px;
   height: 50px;
-  background-image: url(images/image.png); /* make sure this image exists */
+  background-image: url(images/wood.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   cursor: grab;
-  position: absolute;  /* key to place anywhere on the screen */
+  position: absolute;  
   pointer-events: auto;
   display: block;
-  z-index: 15; /* higher than fire and overlay */
+  z-index: 15; 
 }
 
 #campfireZone {
@@ -136,8 +183,6 @@
 }
 
 
-
-/* 🌑 Dark screen overlay */
 #dark-overlay {
   position: fixed;
   top: 0;
@@ -161,30 +206,10 @@
   color: black;
 }
 
-body {
-  background-color: #000;
-  color: white;
-  transition: background-color 0.3s, color 0.3s;
-}
 
 body.light-mode {
   background-color: #fff;
   color: black;
-}
-
-#control-panel {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 10px;
-  z-index: 1002;
-  font-size: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 body.light-mode #control-panel {
@@ -205,7 +230,7 @@ body.light-mode .nav-links a {
 }
 
 body.light-mode #dark-overlay {
-  opacity: 0.8; /* make overlay slightly visible in light mode */
+  opacity: 0.8; 
 }
 
 body.light-mode #control-panel {
@@ -214,24 +239,90 @@ body.light-mode #control-panel {
 }
 
 body.light-mode #fire {
-  opacity: 0.7; /* Adjust the opacity of the fire for light mode */
+  opacity: 0.7; 
 }
 
 body.light-mode #campfireZone {
   opacity: 0.8;
 }
 
-/* Ensure the logo text and other elements have the correct color */
 body.light-mode .logo,
 body.light-mode .nav-links a {
   color: black;
 }
 
-/* Optional: Light background for the wood pieces */
+
 body.light-mode .wood {
-  filter: brightness(0.8); /* Slightly darken wood pieces for visibility */
+  filter: brightness(0.8); 
 }
 
 #fire, #dark-overlay {
   transition: opacity 0.5s ease-in-out;
+}
+
+#porject-h1 {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  font-family: 'Playfair Display', serif;
+}
+
+#project-body {
+  background-color: #222;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  width: 90%;
+  height: 80%;
+  margin: auto;
+}
+
+.card {
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.card p {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+}
+
+.card h1 {
+  color: black;
+  font-family: 'Playfair Display', serif;
+}
+
+header p {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
 }
