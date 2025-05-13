@@ -1,0 +1,237 @@
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      caret-color: transparent;
+    }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background-color: #222;
+        color: white;
+        position: relative;
+        height: 100vh;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        transition: background-color 0.3s, color 0.3s;
+        }
+        
+    header {  
+      background-color: #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      height: 100px;
+      font-size: large;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: bold;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .hero {
+      background-color: #222;
+      padding: 100px 50px;
+      height: 100%;
+      overflow-y: hidden;
+      align-items: flex-start;
+      display: flex;
+      text-align: left;
+      justify-content: center;
+      flex-direction: column;
+      user-select: none;
+    }
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 40px;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+    .buttons button {
+      padding: 15px 30px;
+      font-size: 16px;
+      margin-right: 20px;
+      cursor: pointer;
+      border: 2px solid white;
+      background-color: transparent;
+      color: white;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .buttons .learn {
+      background-color: #b89d6a;
+      border: none;
+      color: #fff;
+    }
+    .buttons button:hover {
+      opacity: 0.8;
+    }
+    #campfire-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none; /* optional: so it doesn’t block buttons */
+}
+
+#campfire {
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(ellipse at center, red, orange, transparent);
+  border-radius: 50%;
+  animation: flicker 1s infinite alternate;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+#fire {
+  width: 100%; 
+  height: 100%; 
+  background-image: url('images/b967d1e281bd0aaca615e889386b0496.gif'); 
+  background-size: cover; 
+  background-position: center; 
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+.wood {
+  width: 100px;
+  height: 50px;
+  background-image: url(images/image.png); /* make sure this image exists */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: grab;
+  position: absolute;  /* key to place anywhere on the screen */
+  pointer-events: auto;
+  display: block;
+  z-index: 15; /* higher than fire and overlay */
+}
+
+#campfireZone {
+  position: fixed;
+  bottom: 0;            
+  left: 65%;
+  width: 300px;
+  height: 300px;
+  z-index: 15;
+  pointer-events: auto;
+}
+
+
+
+/* 🌑 Dark screen overlay */
+#dark-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+  pointer-events: none;
+}
+
+::selection {
+  background: white;
+  color: black;
+}
+
+::-moz-selection {
+  background: white;
+  color: black;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light-mode {
+  background-color: #fff;
+  color: black;
+}
+
+#control-panel {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  z-index: 1002;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+body.light-mode #control-panel {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+
+#control-panel input[type="range"] {
+  width: 150px;
+}
+
+body.light-mode header {
+  background-color: #fff;
+}
+
+body.light-mode .nav-links a {
+  color: black;
+}
+
+body.light-mode #dark-overlay {
+  opacity: 0.8; /* make overlay slightly visible in light mode */
+}
+
+body.light-mode #control-panel {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+}
+
+body.light-mode #fire {
+  opacity: 0.7; /* Adjust the opacity of the fire for light mode */
+}
+
+body.light-mode #campfireZone {
+  opacity: 0.8;
+}
+
+/* Ensure the logo text and other elements have the correct color */
+body.light-mode .logo,
+body.light-mode .nav-links a {
+  color: black;
+}
+
+/* Optional: Light background for the wood pieces */
+body.light-mode .wood {
+  filter: brightness(0.8); /* Slightly darken wood pieces for visibility */
+}
+
+#fire, #dark-overlay {
+  transition: opacity 0.5s ease-in-out;
+}

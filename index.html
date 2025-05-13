@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cristopher Villegas Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <!-- Darkening screen overlay -->
+  <div id="dark-overlay"></div>
+
+  <header>
+    <div class="logo">Cristopher Villegas</div>
+    <p>Give the Campfire Fuel!</p>
+    <nav class="nav-links">
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About Me</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact Me</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to my Portfolio</h1>
+    <p>
+      Interested in Mechanical Engineering. With a keen eye for detail and a drive for innovation, I like to build things that make me happy. Let’s build something amazing together!
+    </p>
+    <div class="buttons">
+      <button class="learn" onclick="location.href='learn.html'">Learn More</button>
+      <button onclick="location.href='contact.html'">Contact Me</button>
+    </div>
+  </section>
+
+  <!-- 🔥 Campfire fixed in bottom-right -->
+  <div id="campfireZone">
+    <div id="fire"></div>
+  </div>
+    <div class="wood" draggable="true"></div>
+    <div class="wood" draggable="true"></div>
+    <div class="wood" draggable="true"></div>
+
+   <div id="control-panel">
+  <label>
+    Decay Speed:
+    <input type="range" id="decaySpeed" min="0.001" max="0.05" step="0.001" value="0.01">
+  </label>
+  <label>
+    Wood Boost:
+    <input type="range" id="lightBoost" min="0.1" max="1" step="0.1" value="0.3">
+  </label>
+  <label>
+    <input type="checkbox" id="themeToggle" checked>
+    Dark Mode
+  </label>
+</div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
