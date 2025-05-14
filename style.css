@@ -562,3 +562,94 @@ footer {
 .post-content {
   color: #222;
 }
+
+
+#learn-body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #222;
+  color: white;
+  overflow-x: hidden;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  overflow-y: scroll;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.learn-div {
+  max-width: 900px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 8%;
+  color: black;
+}
+
+.learn-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.learn-contact {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.learn-contact a {
+  color: #0056b3;
+  text-decoration: none;
+}
+
+.learn-contact a:hover {
+  text-decoration: underline;
+}
+
+.learn-heading {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.learn-text {
+  font-size: 1rem;
+  margin: 10px 0 20px;
+}
+
+.learn-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.learn-list li {
+  margin-bottom: 6px;
+}
+
+.learn-buttons {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 5px;
+}
+
+.learn-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  background-color: #0077cc;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.learn-btn:hover {
+  background-color: #005fa3;
+}
+
+
+
