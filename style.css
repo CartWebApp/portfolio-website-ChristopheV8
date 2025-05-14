@@ -350,6 +350,30 @@ header p {
         transition: background-color 0.3s, color 0.3s;
 }
 
+#about-body {
+  font-family: 'Open Sans', sans-serif;
+        background-color: #222;
+        color: white;
+        overflow-x: hidden;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        overflow-y: hidden;
+        transition: background-color 0.3s, color 0.3s;
+}
+
+#blog-body {
+  font-family: 'Open Sans', sans-serif;
+        background-color: #222;
+        color: white;
+        overflow-x: hidden;
+        flex-direction: column;
+        display: flex;
+        align-items: center;
+        overflow-y: hidden;
+        transition: background-color 0.3s, color 0.3s;
+}
+
 #project-body {
     font-family: 'Open Sans', sans-serif;
         background-color: #222;
@@ -447,3 +471,88 @@ form input:focus, form textarea:focus {
     background-color: #555;
 }
 
+main {
+  padding: 40px 20px;
+  max-width: 800px;
+  text-align: center;
+  margin-top: 10%;
+}
+
+
+
+
+.blog-div {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.blog-posts {
+  width: 70%;
+}
+
+.blog-post {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post .post-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+}
+
+.blog-post .post-meta {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.blog-post .post-content {
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+
+.blog-post .read-more {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Sidebar */
+.blog-sidebar {
+  width: 25%;
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.blog-sidebar h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+.blog-sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.blog-sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.blog-sidebar ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+.post-title {
+  color: #222;
+}
