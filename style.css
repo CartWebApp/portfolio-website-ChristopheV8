@@ -306,6 +306,11 @@ body.light-mode .wood {
   transition: transform 0.3s ease;
 }
 
+.card a {
+    text-decoration: none; 
+    color: inherit;     
+}
+
 .card:hover {
   transform: translateY(-5px);
 }
