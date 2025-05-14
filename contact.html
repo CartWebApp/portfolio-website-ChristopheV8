@@ -7,9 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body id="porject-body">
+<body id="contact-body">
 
-   <header>
+   <header id="header-contact">
     <Nav id="nav-home" >
       <a href="index.html">
         <img id="cv-logo" src="images/cv-logo.png">
@@ -25,6 +25,31 @@
     </nav>
   </header>
 
+  <section class="contact-section">
+    <h1>Contact Me</h1>
+    <p>I'd love to hear from you! Fill out the form below:</p>
+
+    <form id="contact-form">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
+      <label for="email">Your Phone Number:</label>
+      <input type="tel" id="number" name="number" placeholder="Your Phone Number" required>
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="subject">Subject:</label>
+      <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" placeholder="Your message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div id="form-response"></div>
+  </section>
+
 </body>
 </html>
-

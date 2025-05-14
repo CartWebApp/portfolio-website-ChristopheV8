@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="home-body">
 
   <div id="dark-overlay"></div>
 
@@ -27,8 +27,9 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Welcome to my Portfolio</h1>
+  <section class="hero-container">
+    <section class="hero-content">
+      <h1>Welcome to my Portfolio</h1>
     <p>
       Interested in Mechanical Engineering. With a keen eye for detail and a drive for innovation, I like to build things that make me happy. Let’s build something amazing together!
     </p>
@@ -36,14 +37,12 @@
       <button class="learn" onclick="location.href='learn.html'">Learn More</button>
       <button onclick="location.href='contact.html'">Contact Me</button>
     </div>
+    </section>
   </section>
 
   <div id="campfireZone">
     <div id="fire"></div>
   </div>
-    <div class="wood" draggable="true"></div>
-    <div class="wood" draggable="true"></div>
-    <div class="wood" draggable="true"></div>
 
 <div id="control-container">
   <button id="toggle-panel">⚙️ Controls</button>
@@ -64,6 +63,10 @@
     <label>
       <input type="checkbox" id="themeToggle" checked>
       Dark Mode
+    </label>
+    <label>
+    <input type="checkbox" id="pauseCampfire">
+    Pause Campfire
     </label>
   </div>
 </div>
