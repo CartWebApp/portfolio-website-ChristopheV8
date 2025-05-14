@@ -485,6 +485,7 @@ main {
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  margin-top: 10%;
 }
 
 .blog-posts {
@@ -525,6 +526,7 @@ main {
   background-color: #f1f1f1;
   padding: 20px;
   border-radius: 8px;
+  color: #222;
 }
 
 .blog-sidebar h3 {
@@ -554,5 +556,9 @@ footer {
 }
 
 .post-title {
+  color: #222;
+}
+
+.post-content {
   color: #222;
 }
