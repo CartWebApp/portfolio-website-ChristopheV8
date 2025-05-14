@@ -30,8 +30,10 @@
       <a href="contact.html">Contact Me</a>
     </nav>
   </header>
-
-  <section class="card-container">
+  <section class="carousel-wrapper">
+    <button class="carousel-btn left" id="scroll-left">&#10094;</button>
+  
+    <div class="card-container" id="carousel">
     <div class="card">
       <a href="https://piechartdontwork.netlify.app" target="_blank">
         <img src="images/budget.png" alt="Project 1">
@@ -63,7 +65,27 @@
         <p>Google Calculator <br>A calculator that uses Google's prompts to do simple math such as addition, multiplication, division, and subtraction.</p>
       </a>
     </div>
+    <button class="carousel-btn right" id="scroll-right">&#10095;</button>
   </section>
-
+  <script>
+    // Carousel functionality
+    const carousel = document.getElementById('carousel'); // .card-container's ID
+    const leftBtn = document.getElementById('scroll-left');
+    const rightBtn = document.getElementById('scroll-right');
+  
+    const scrollAmount = 400; // Adjust based on your card width
+  
+    if (leftBtn && rightBtn && carousel) {
+      leftBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+  
+      rightBtn.addEventListener('click', () => {
+        carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    } else {
+      console.warn('Carousel buttons or container not found');
+    }
+  </script>  
 </body>
 </html>
